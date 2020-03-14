@@ -10,7 +10,7 @@ unsigned int n = 0, count = 0;
 int i = 0;
 
 n = va_arg(b,unsigned int);
-if (n > 0)
+if (n == 0)
 {
     write_c(n + '0');
     count ++;
@@ -33,13 +33,13 @@ return(count);
 }
 
 
-int print_o(va_list b)
+int print_o(va_list o)
 {
-    unsigned int octal [10];
+    unsigned int octal [8];
     unsigned int n = 0, count = 0;
     int i;
 
-n = va_arg(b,unsigned int);
+n = va_arg(o,unsigned int);
 if (n == 0)
 {
     write_c( 0 + '0');
@@ -58,6 +58,42 @@ else
         write_c(octal[i] + '0');
         count++;
     }
+}
+return(count);
+}
+
+int print_x(va_list x)
+{
+    unsigned int hex [16];
+    unsigned int n = 0, count = 0;
+    int i;
+
+n = va_arg(x,unsigned int);
+if (n == 0)
+{
+    write_c( 0 + '0');
+    count ++;
+}
+else
+{
+   while (n > 0)
+   {
+       if (n >= 10 && n <= 15)
+       {
+           hex[i] = 55 + n;
+       }
+       else
+       {
+           hex[i] = 48 + n;
+       }
+       n = n/16;
+       i++;
+   }
+   for (--i; i>=0; i--)
+    {
+        write_c(hex[i]);
+        count++;
+    } 
 }
 return(count);
 }
