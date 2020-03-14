@@ -10,5 +10,7 @@ typedef struct pter
 
 
 int _putchar(char c);
+int write_c(char c);
+int _printf(const char *format, ...);
 
 #endif
