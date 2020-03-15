@@ -10,7 +10,7 @@ int print_number(va_list args)
 	int n;
 	int len = 0;
 	unsigned int num;
-	int div;
+	int div = 1;
 
 	n = va_arg(args, int);
 	if (n < 0)
@@ -20,7 +20,7 @@ int print_number(va_list args)
 	}
 	else
 		num = n;
-	for (; n / div > 9 ;)
+	for (; num / div > 9 ;)
 		div *= 10;
 	for (; div != 0 ;)
 	{
@@ -38,8 +38,8 @@ int print_number(va_list args)
 int print_unsigned_number(unsigned int n)
 {
 	int len = 0;
-	int num = n;
-	int div;
+	unsigned int num = n;
+	int div = 1;
 
 	for (; num / div > 9 ;)
 		div *= 10;
