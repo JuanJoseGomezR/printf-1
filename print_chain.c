@@ -8,7 +8,7 @@
 int print_c(va_list list)
 {
 	write_c(va_arg(list, int));
-	return(1);
+	return (1);
 }
 
 /**
@@ -18,15 +18,16 @@ int print_c(va_list list)
  */
 int print_s(va_list list)
 {
-        int i;
-        char *ptr;
+	int i;
+	char *ptr;
 
-        ptr = va_arg(list, char *);
-        if (ptr == NULL)
-                ptr = "(NULL)";
-        for (i = 0; ptr[i] != '\0'; i++)
-                write_c(ptr[i]);
-        return (1);
+	ptr = va_arg(list, char *);
+
+	if (ptr == NULL)
+		ptr = "(null)";
+	for (i = 0; ptr[i] != '\0'; i++)
+		write_c(ptr[i]);
+	return (i);
 }
 /**
  * print_percent - Print a percent string
@@ -35,8 +36,8 @@ int print_s(va_list list)
  */
 int print_percent(__attribute__((unused))va_list list)
 {
-        write_c('%');
-        return (1);
+	write_c('%');
+	return (1);
 }
 /**
  * print_i - Print integer
@@ -58,11 +59,12 @@ int print_i(va_list list)
 int print_u(va_list list)
 {
 	unsigned int num;
+
 	num = va_arg(list, unsigned int);
 
 	if (num == 0)
-		return(print_unsigned_int(num));
+		return (print_unsigned_number(num));
 	if (num < 1)
-		return(-1);
-	return(print_unsigned_int(num));
+		return (-1);
+	return (print_unsigned_number(num));
 }
