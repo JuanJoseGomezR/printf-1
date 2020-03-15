@@ -30,24 +30,24 @@ int validate(const char *format, pter_l f_list[], va_list arg_list)
 					print_all += k_val;
 					break;
 				}
-				if (f_list[j].ptr == NULL && format[i + 1] != ' ')
-				{
-					if (format[i + 1] != '\0')
-					{
-						write_c(format[i]);
-						write_c(format[i + 1]);
-						print_all = print_all + 2;
-					}
-					else
-						return (-1);
-				}
-				i = i + 1;
 			}
-			else
+			if (f_list[j].ptr == NULL && format[i + 1] != ' ')
 			{
+				if (format[i + 1] != '\0')
+				{
 					write_c(format[i]);
-					print_all++;
+					write_c(format[i + 1]);
+					print_all = print_all + 2;
+				}
+				else
+					return (-1);
 			}
+			i = i + 1;
+		}
+		else
+		{
+			write_c(format[i]);
+			print_all++;
 		}
 	}
 	return (print_all);
