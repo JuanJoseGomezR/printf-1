@@ -23,6 +23,9 @@ int print_o(va_list);
 int print_d(unsigned int n);
 int print_number(va_list);
 int print_unsigned_int(va_list);
+<<<<<<< HEAD
 int print_unsigned_number(unsigned int n);
+=======
+>>>>>>> 67a29d36ba656731cf730747e0157e0cbe19c490
 int validate(const char *format, pter_l f_list[], va_list arg_list);
 #endif
