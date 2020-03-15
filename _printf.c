@@ -7,19 +7,20 @@
  */
 int _printf(const char *format, ...)
 {
+	int save;
 	pter_l f_list[] = {
 		{"c", print_c},
 		{"s", print_s},
-		{"d", print_d},
+		/*{"d", print_d},*/
 		{"%", print_percent},
 		{"i", print_i},
-		{"b", print_b},
+		/*{"b", print_b},
 		{"r", print_r},
 		{"R", print_R},
 		{"u", print_u},
 		{"o", print_o},
 		{"x", print_x},
-		{"X", print_X},
+		{"X", print_X},*/
 	};
 	va_list arg_list;
 	if (format == NULL)
