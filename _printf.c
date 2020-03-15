@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	pter_l f_list[] = {
 		{"c", print_c},
 		{"s", print_s},
-		/*{"d", print_d},*/
+		{"d", print_i},
 		{"%", print_percent},
 		{"i", print_i},
 		/*{"b", print_b},
